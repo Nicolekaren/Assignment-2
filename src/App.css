@@ -11,4 +11,21 @@ button{
   font-size:1em;
 }
 
+.container {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 25px;
+}
 
+.front {
+  width: 100px;
+  height: 100px;
+  object-fit:fill;
+
+}
+
+.back{
+  width: 100px;
+  height: 100px;
+}
