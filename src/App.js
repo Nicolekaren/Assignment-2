@@ -6,25 +6,31 @@ import { useState, useEffect} from "react";
 const cardObjects =[
   {
     name: "Card1",
-    'src': '/images/Bird.png'
+    'src': '/images/Bird.png',
+    matched: false
   },
   {
     name: "Card2",
-    'src': '/images/Cat.png'
+    'src': '/images/Cat.png',
+    matched: false
   },
   {
     name: "Card3",
-    'src': '/images/Flamingo.png'
+    'src': '/images/Flamingo.png',
+    matched: false
   },
   {
     name: "Card4",
-    'src':'/images/Hamster.png'
+    'src':'/images/Hamster.png',
+    matched: false
   },
   {
     name: "Card ",
-    'src': '/images/Owl.png'
+    'src': '/images/Owl.png',
+    matched: false
   }
 ];
+
 
 function App() {
   const [cards, setCards]=useState([])
@@ -47,6 +53,35 @@ function App() {
       else{
         setCardTwo (card)
       }
+  }
+
+  useEffect( () => {
+    if (cardOne && cardTwo){
+        if(cardOne.src === cardTwo.src){ 
+          setCards( prevState => {
+            return prevState.map(card => {
+                if (card.src ===cardOne.src) {
+                  return {...card, matched: true}
+                }
+                else {
+                  return card
+                }
+          })
+        })
+          resetChoices()
+        }
+        else{
+          setTimeout(()=> resetChoices(), 800)
+        }
+    }
+      
+  }, [cardOne, cardTwo])
+
+  console.log(cards)
+
+  const resetChoices = ()=> {
+    setCardOne()
+    setCardTwo()
   }
 
   useEffect(()=> {
