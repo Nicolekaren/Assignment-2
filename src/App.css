@@ -1,13 +1,8 @@
-.App {
-  text-align: center;
-}
-
 button{
-  background: none;
-  border:2px solid black;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: bold;
+  background: navy;
+  border:2px solid white;
+  border-radius: 5px;
+  color: white;
   font-size:1em;
 }
 
@@ -16,16 +11,4 @@ button{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 25px;
-}
-
-.front {
-  width: 100px;
-  height: 100px;
-  object-fit:fill;
-
-}
-
-.back{
-  width: 100px;
-  height: 100px;
 }
