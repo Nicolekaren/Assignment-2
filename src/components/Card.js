@@ -1,10 +1,11 @@
 import './Card.css'
 
-function Card({card, handleChoice, flipped}) {
+function Card({card, handleChoice, flipped, disabled}) {
 
     const handleClick = () => {
+        if(!disabled){
             handleChoice(card)
-
+        }
     }
 
     if(flipped===true){
