@@ -5,32 +5,26 @@ import { useState, useEffect} from "react";
 
 const cardObjects =[
   {
-    name: "Card1",
     'src': '/images/Bird.png',
     matched: false
   },
   {
-    name: "Card2",
     'src': '/images/Cat.png',
     matched: false
   },
   {
-    name: "Card3",
     'src': '/images/Flamingo.png',
     matched: false
   },
   {
-    name: "Card4",
     'src':'/images/Hamster.png',
     matched: false
   },
   {
-    name: "Card ",
     'src': '/images/Owl.png',
     matched: false
   }
 ];
-
 
 function App() {
   const [cards, setCards]=useState([])
@@ -57,11 +51,11 @@ function App() {
 
   useEffect( () => {
     if (cardOne && cardTwo){
-        if(cardOne.src === cardTwo.src){ 
+        if(cardOne.src === cardTwo.src){
           setCards( prevState => {
             return prevState.map(card => {
                 if (card.src ===cardOne.src) {
-                  return {...card, matched: true}
+                  return {...card, matched:true}
                 }
                 else {
                   return card
@@ -76,8 +70,7 @@ function App() {
     }
       
   }, [cardOne, cardTwo])
-
-  console.log(cards)
+  
 
   const resetChoices = ()=> {
     setCardOne()
@@ -96,7 +89,8 @@ function App() {
         {cards.map(card=>(
           <Card key= {card.id} 
                 card={card} 
-                handleChoice={handleChoice}>
+                handleChoice={handleChoice}
+                flipped = {card===cardOne || card ===cardTwo || card.matched===true}>
           </Card>
         ))}
       </div>

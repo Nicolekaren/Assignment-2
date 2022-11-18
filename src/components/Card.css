@@ -1,18 +1,29 @@
-.card{
+  .card{
     position: relative;
 }
 
 .front {
     width: 100px;
     height: 100px;
-    object-fit:fill;  
+    object-fit:fill;
+  
   }
   
-.back{
+  .back{
     width: 100px;
     height: 100px;
     background-color:#4E4459;
     border:solid 1px white;
   }
   
+
+.card .front{
+    transform: rotateY(90deg);
+    position: absolute;
+}
+
+.flipped .front{
+    transform: rotateY(0deg);
+}
+
 
